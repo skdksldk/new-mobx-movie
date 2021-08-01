@@ -103,6 +103,15 @@ const store = observable({
     
     this.movieBg = theMovieBg;
   },
+  movieSelectToggle(){
+    
+    if ( !this.isMovieSelected ) this.isMovieSelected = !this.isMovieSelected;
+  },
+  setBgRestore(){
+    
+    this.changeMovieBg(this.selectedMovie.backdrop_path);
+  },
+
 
 })
 
