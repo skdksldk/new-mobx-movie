@@ -79,64 +79,59 @@ const Header = (props) => {
         store.setHideTrailer();
     };
 
-    return useObserver(() => ( <
-        header className = { store.isMovieSelected ? 'Header on' : 'Header' } >
-        <
-        div className = "Header__Inner" >
-        <
-        div className = "Search__Wrap" >
-        <
-        input type = "text"
-        placeholder = "검색하기"
-        onChange = { handleKeywordChange }
-        onKeyPress = { handleKeypress }
-        /> <
-        i className = "fas fa-search"
-        onClick = { handleSearch } >
-        < /i> <
-        /div> <
-        Tabs value = { value1 }
-        onChange = { handleChange1 }
-        classes = {
-            { root: classes.tabsRoot, indicator: classes.tabsIndicator } } >
-        <
-        Tab label = "현재 상영중인 영화"
-        classes = {
-            { root: classes.tabRoot, selected: classes.tabSelected } }
-        onClick = { handleNowPlaying }
-        /> <
-        Tab label = "최근 인기있는 영화"
-        classes = {
-            { root: classes.tabRoot, selected: classes.tabSelected } }
-        onClick = { handleTrending }
-        /> <
-        Tab label = "최근 평점높은 영화"
-        classes = {
-            { root: classes.tabRoot, selected: classes.tabSelected } }
-        onClick = { handleTopRated }
-        /> <
-        Tab label = "최근 개봉 &amp; 예정 영화"
-        classes = {
-            { root: classes.tabRoot, selected: classes.tabSelected } }
-        onClick = { handleUpcoming }
-        /> <
-        /Tabs> <
-        /div> <
-        div className = "Header__Back" >
-        <
-        Tabs value = { value2 }
-        onChange = { handleChange2 }
-        classes = {
-            { root: classes.tabsRoot, indicator: classes.tabsIndicator } } >
-        <
-        Tab label = "뒤로 가기"
-        classes = {
-            { root: classes.tabRoot } }
-        onClick = { handleBackHome }
-        /> <
-        /Tabs> <
-        /div> <
-        /header>
+    return useObserver(() => ( 
+        <header className = { store.isMovieSelected ? 'Header on' : 'Header' } >
+        <div className = "Header__Inner" >
+            <div className = "Header__Search" >
+                <input type = "text"
+                        placeholder = "검색하기"
+                        onChange = { handleKeywordChange }
+                         onKeyPress = { handleKeypress }
+                /> 
+                <i className = "fas fa-search"
+                    onClick = { handleSearch }
+                    ></i> 
+                </div> 
+                <Tabs value = { value1 }
+                       onChange = { handleChange1 }
+                       classes = {{ root: classes.tabsRoot, indicator: classes.tabsIndicator } } 
+                    >
+                <Tab 
+                    label = "현재 상영중인 영화"
+                    classes = {{ root: classes.tabRoot, selected: classes.tabSelected } }
+                    onClick = { handleNowPlaying }
+                    /> 
+                    <Tab 
+                        label = "최근 인기있는 영화"
+                        classes = {{ root: classes.tabRoot, selected: classes.tabSelected } }
+                        onClick = { handleTrending }
+                    /> 
+                    <Tab 
+                        label = "최근 평점높은 영화"
+                        classes = {{ root: classes.tabRoot, selected: classes.tabSelected } }
+                        onClick = { handleTopRated }
+                    /> 
+                    <Tab 
+                        label = "최근 개봉 &amp; 예정 영화"
+                        classes = {{ root: classes.tabRoot, selected: classes.tabSelected } }
+                        onClick = { handleUpcoming }
+                    /> 
+                    </Tabs> 
+                </div> 
+            <div className = "Header__Back" >
+                <Tabs 
+                    value = { value2 }
+                    onChange = { handleChange2 }
+                    classes = {{ root: classes.tabsRoot, indicator: classes.tabsIndicator } } 
+                    >
+                        <Tab 
+                            label = "뒤로 가기"
+                            classes = {{ root: classes.tabRoot } }
+                            onClick = { handleBackHome }
+                        /> 
+                    </Tabs> 
+                </div> 
+            </header>
     ));
 }
 
