@@ -28,7 +28,7 @@ const MovieDetail = (props) => {
         <h3>{props.og_title}</h3>
         <p>
           <span className="Detail__VoteAverage"><i className="fas fa-star"></i>{props.vote_average}</span>
-          <span className="Detail__RunTime"><i className="far fa-clock"></i> {props.runtime}분</span>
+          <span className="Detail__Runtime"><i className="far fa-clock"></i> {props.runtime}분</span>
           { store.isExisTrailer ? <span className="Detail__Trailer" onClick={handleTrailerView}><i className="fab fa-youtube"></i>예고편 보기</span> : null }
         </p>
 

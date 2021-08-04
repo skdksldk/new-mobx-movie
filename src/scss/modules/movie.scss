@@ -112,11 +112,11 @@
     visibility: hidden;
 }
 
-
 .Poster__Wrap img {
     box-shadow: 0 8px 38px rgba(0, 0, 0, 0.5), 0 5px 12px rgba(0, 0, 0, 0.4);
     width: 100%;
 }
+
 
 .Detail__View__Bg .Detail__View__Bg__Bg {
     position: absolute;
@@ -149,50 +149,48 @@
     -ms-transition: all 0.8s 0.2s ease-in-out;
     -o-transition: all 0.8s 0.2s ease-in-out;
 
+    &__Info {
+      position: absolute;
+      left: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      z-index: 10;
+      width: 30vw;
+      height: 80vh;
+      overflow: auto;
+      /* direction: rtl; */
+      padding-left: 130px;
+      scroll-behavior: smooth;
 
-&__Info {
-    position: absolute;
-    left: 3%;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    z-index: 10;
-    width: 30vw;
-    height: 80vh;
-    overflow: auto;
-    /* direction: rtl; */
-    padding-left: 130px;
-    scroll-behavior: smooth;
-
-    ::-webkit-scrollbar {
-        width: 8px;
+      ::-webkit-scrollbar {
+          width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+          background: #121328;
+      }
+      ::-webkit-scrollbar-thumb {
+          background-color: #000;
+          border-radius: 8px;
+          -webkit-border-radius: 8px;
+          -moz-border-radius: 8px;
+          -ms-border-radius: 8px;
+          -o-border-radius: 8px;
+      }
     }
-    ::-webkit-scrollbar-track {
-        background: #121328;
+    &__Bg {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50vw;
+      height: 100vh;
+      background-size: cover;
     }
-    ::-webkit-scrollbar-thumb {
-        background-color: #000;
-        border-radius: 8px;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        -ms-border-radius: 8px;
-        -o-border-radius: 8px;
-    }
-  }
-  &__Bg {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50vw;
-    height: 100vh;
-    background-size: cover;
-  }
 
 }
-
 .Detail__View.on {
     transform: translateX(0);
     -webkit-transform: translateX(0);
