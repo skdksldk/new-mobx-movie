@@ -13,12 +13,12 @@ const store = observable({
     selectedMovie: [],
     searchWord: '',
     searchWordFix: '',
-    recommendedMovie: [],
     movieTrailer: [],
     movieTrailerKey: '',
     isExisTrailer: false,
     isShowTrailer: false,
 
+    credits: [],
     director: '',
     cast: [],
     castCount: 3,
@@ -122,10 +122,11 @@ const store = observable({
 
         this.selectedMovie = {};
     },
-    setRecommendCountRestore() {
-
-        this.recommendCount = 3;
+    
+    setHideTrailer(){
+      this.isShowTrailer = false;
     },
+    
     upCastCount(){
         this.castCount += 8;
     },
@@ -133,24 +134,17 @@ const store = observable({
     setShowTrailer(){
         this.isShowTrailer = true;
     },
-
     
-    async getRecommendMovie(id){
-        
-        const rMovie = await this.callRecommendMovie(id);
-        this.setRecommendMovie(rMovie.results);
-      },
-      recommendMore(){
-        
-        this.recommendCount = this.recommendCount + 6;
-      },
-      async getDetailMovie(id){
-        const sMovie = await this.callDetail(id);
-        this.setDetailInfo(sMovie);
-        // console.log(this.selectedMovie);
-        this.getTrailer(id);
-      },
-      callDetail(id){
+    
+    async getDetailMovie(id){
+      const sMovie = await this.callDetail(id);
+      this.setDetailInfo(sMovie);
+      // console.log(this.selectedMovie);
+      this.getTrailer(id);
+      this.getCredit(id);
+    },
+
+    callDetail(id){
         
         const DEFAULT_URL = 'https://api.themoviedb.org/3';
         const API_KEY = '?api_key=dc11dbd0605b4d60cc66ce5e8363e063';
@@ -178,6 +172,12 @@ const store = observable({
           this.movieTrailerKey = '';
         }
       },
+      async getCredit(id){
+        const credit = await this.callCredit(id);
+        this.setCredits(credit);
+        this.getDirector();
+        this.getCast();
+      },
       callTrailer(id){
         
         const DEFAULT_URL = 'https://api.themoviedb.org/3';
@@ -186,6 +186,16 @@ const store = observable({
         const TRAILER_MOVIE_ID = '/movie/'+id+'/videos';
     
         return axios.get(DEFAULT_URL + TRAILER_MOVIE_ID + API_KEY + LANGUAGE_KR)
+          .then (response => response.data)
+          .catch (err => console.log(err))
+      },
+      callCredit(id){
+        const DEFAULT_URL = 'https://api.themoviedb.org/3';
+        const API_KEY = '?api_key=dc11dbd0605b4d60cc66ce5e8363e063';
+        const LANGUAGE_KR = '&language=ko-KR';
+        const CREDIT_MOVIE_ID = '/movie/'+id+'/credits';
+    
+        return axios.get(DEFAULT_URL + CREDIT_MOVIE_ID + API_KEY + LANGUAGE_KR)
           .then (response => response.data)
           .catch (err => console.log(err))
       },

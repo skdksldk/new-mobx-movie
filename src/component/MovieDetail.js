@@ -1,5 +1,6 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
+import Credits from './Credits';
 import store from '../store/MovieStore';
 
 const MovieDetail = (props) => {
@@ -36,13 +37,14 @@ const MovieDetail = (props) => {
         <p className="Detail__Summary">{props.summary}</p>
 
       </div>
+      <Credits />
     </>
   ));
 }
 
 function Genre ({genre}) {
   return (
-    <span className="Detail__Movie__Genre">{genre}</span>
+    <span className="Detail__Genre__list">{genre}</span>
   )
 }
 
