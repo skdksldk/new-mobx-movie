@@ -66,6 +66,7 @@ const MoviePage = () => {
           </div>
         <div className="Movie__View__Bg">
           <div className="Detail__View__Bg__Bg" style={bgStyle} />
+          { store.isShowTrailer ? <div className="Movie__Trailer"><iframe width='100%' height='100%' src={'https://www.youtube.com/embed/'+ store.movieTrailerKey } frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe><div className="Movie__Close" onClick={handleCloseTrailer} title={store.selectedMovie.title}><i className="fas fa-times"></i></div></div> : null }
         </div>
       </div>
       <div className={store.isMovieSelected ? 'Movie__Section on' : 'Movie__Section'}>

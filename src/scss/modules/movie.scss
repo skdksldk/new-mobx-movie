@@ -83,9 +83,29 @@
         }
       }
     }
+    &__Trailer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      padding-bottom: 37.5%;
+
+      iframe {
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: 0 8px 38px rgba(0, 0, 0, 0.5), 0 5px 12px rgba(0, 0, 0, 0.4);
+      }
+    }
+    &__Close {
+      position: absolute;
+      right: 0;
+      top: -60px;
+      font-size: 44px;
+      cursor: pointer;
+    }
 }
-
-
 
 .Movie__Section.on {
     opacity: 0;

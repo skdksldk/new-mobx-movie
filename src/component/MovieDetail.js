@@ -4,23 +4,36 @@ import store from '../store/MovieStore';
 
 const MovieDetail = (props) => {
 
+  const renderGenre = () => {
+    const genres = props && props.genre && props.genre.map(genre => {
+      return (<Genre genre={genre.name} key={genre.id} />);
+    })
+    return genres;
+  };
+
+  const handleTrailerView = () => {
+    store.setShowTrailer();
+  };
+
   const posterUrl = 'https://image.tmdb.org/t/p/original';
 
   return useObserver(() => (
     <>
-      <div className="Poster__Wrap Detail__Poster">
+      <div className="Poster">
         <img src={posterUrl + props.poster} alt={props.title}/>
       </div>
-      <div className="Text__Info">
+      <div className="Detail">
         <h2>{props.title}</h2>
         <h3>{props.og_title}</h3>
         <p>
-          <span className="Vote__Average"><i className="fas fa-star"></i>{props.vote_average}</span>
-          <span className="Running__Time"><i className="far fa-clock"></i> {props.runtime}분</span>
+          <span className="Detail__VoteAverage"><i className="fas fa-star"></i>{props.vote_average}</span>
+          <span className="Detail__RunTime"><i className="far fa-clock"></i> {props.runtime}분</span>
+          { store.isExisTrailer ? <span className="Detail__Trailer" onClick={handleTrailerView}><i className="fab fa-youtube"></i>예고편 보기</span> : null }
         </p>
 
-        <p className="Tagline">{props.tagline}</p>
-        <p className="Summary">{props.summary}</p>
+        <div className="Detail__Genre">{renderGenre()}</div>
+        <p className="Detail__Tagline">{props.tagline}</p>
+        <p className="Detail__Summary">{props.summary}</p>
 
       </div>
     </>
@@ -29,7 +42,7 @@ const MovieDetail = (props) => {
 
 function Genre ({genre}) {
   return (
-    <span className="Movie__Genre">{genre}</span>
+    <span className="Detail__Movie__Genre">{genre}</span>
   )
 }
 
