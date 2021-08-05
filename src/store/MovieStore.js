@@ -12,7 +12,9 @@ const store = observable({
   isMovieSelected: false, 
   selectedMovie: [], 
   searchWord: '', 
-  searchWordFix: '',
+  searchWordFix:'',
+  recommendedMovie: [], 
+  recommendCount: 3,Fix: '',
   movieTrailer: [], 
   movieTrailerKey: '',
   isExisTrailer: false,
@@ -125,6 +127,10 @@ const store = observable({
     
     this.selectedMovie = {};
   },
+  setRecommendCountRestore(){
+    
+    this.recommendCount = 3;
+  },
   setHideTrailer(){
     this.isShowTrailer = false;
   },
@@ -133,6 +139,15 @@ const store = observable({
   },
   setShowTrailer(){
     this.isShowTrailer = true;
+  },
+  async getRecommendMovie(id){
+    
+    const rMovie = await this.callRecommendMovie(id);
+    this.setRecommendMovie(rMovie.results);
+  },
+  recommendMore(){
+    
+    this.recommendCount = this.recommendCount + 6;
   },
   async getDetailMovie(id){
     const sMovie = await this.callDetail(id);
@@ -223,6 +238,21 @@ const store = observable({
   setCastCountRestore(){
     this.castCount = 3;
   },
+  callRecommendMovie(id){
+    
+    const DEFAULT_URL = 'https://api.themoviedb.org/3';
+    const API_KEY = '?api_key=dc11dbd0605b4d60cc66ce5e8363e063';
+    const LANGUAGE_KR = '&language=ko-KR';
+    const RECOMMEND_MOVIE_ID = '/movie/'+id+'/recommendations';
+
+    return axios.get(DEFAULT_URL + RECOMMEND_MOVIE_ID + API_KEY + LANGUAGE_KR)
+      .then (response => response.data)
+      .catch (err => console.log(err))
+  },
+  setRecommendMovie(recommendations){
+    
+    this.recommendedMovie = recommendations;
+  }
 
 })
 

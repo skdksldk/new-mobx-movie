@@ -1,6 +1,7 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import Credits from './Credits';
+import Recommend from './Recommend';
 import store from '../store/MovieStore';
 
 const MovieDetail = (props) => {
@@ -38,6 +39,7 @@ const MovieDetail = (props) => {
 
       </div>
       <Credits />
+      <Recommend />
     </>
   ));
 }

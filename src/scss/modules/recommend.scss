@@ -1,0 +1,26 @@
+.Recommend {
+    margin-top: 100px;
+
+    h3 {
+        margin: 0;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: left;
+    }
+    
+    &__Wrap {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 2em;
+        grid-row-gap: 3em;
+        overflow: auto;
+
+        &__More {
+            margin-top: 20px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+    }
+
+}
