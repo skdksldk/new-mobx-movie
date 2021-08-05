@@ -54,10 +54,10 @@ const Header = (props) => {
     store.getMovies(3);
   };
   const handleChange1 = (event, value) => {
-    setValue1(value1);
+    setValue1(value);
   };
   const handleChange2 = (event, value) => {
-    setValue2(value2);
+    setValue2(value);
   };
   const handleKeywordChange = (e) => {
     store.setSearchKeyword(e.target.value);
