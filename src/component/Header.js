@@ -36,6 +36,8 @@ const styles = {
 
 const Header = (props) => {
 
+  const [navToggleOpen, setNavToggleOpen] = useState(false);
+
   const [value1, setValue1] = useState(0);
   const [value2, setValue2] = useState(0);
 
@@ -80,58 +82,78 @@ const Header = (props) => {
   };
 
   return useObserver(() => (
-    <header className={store.isMovieSelected ? 'Header on' : 'Header'}>
-      <div className="Header__Inner">
-        <div className="Header__Search">
-          <input
-            type="text"
-            placeholder="검색하기"
-            onChange={handleKeywordChange}
-            onKeyPress={handleKeypress}
-          />
-          <i className="fas fa-search"
-            onClick={handleSearch}
-          ></i>
+    <header>
+      <div className={store.isMovieSelected ? 'Header on' : 'Header'}>
+        <div className="Header__Inner">
+          <div className="Header__Search">
+            <input
+              type="text"
+              placeholder="검색하기"
+              onChange={handleKeywordChange}
+              onKeyPress={handleKeypress}
+            />
+            <i className="fas fa-search"
+              onClick={handleSearch}
+            ></i>
+          </div>
+          <div className="Header__Menu">
+            <Tabs
+              value={value1}
+              onChange={handleChange1}
+              classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
+            >
+              <Tab
+                label="현재 상영중인 영화"
+                classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
+                onClick={handleNowPlaying}
+              />
+              <Tab
+                label="최근 인기있는 영화"
+                classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
+                onClick={handleTrending}
+              />
+              <Tab
+                label="최근 평점높은 영화"
+                classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
+                onClick={handleTopRated}
+              />
+              <Tab
+                label="최근 개봉 &amp; 예정 영화"
+                classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
+                onClick={handleUpcoming}
+              />
+            </Tabs>
+          </div>
         </div>
-        <Tabs
-          value={value1}
-          onChange={handleChange1}
-          classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
-        >
-          <Tab
-            label="현재 상영중인 영화"
-            classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            onClick={handleNowPlaying}
-          />
-          <Tab
-            label="최근 인기있는 영화"
-            classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            onClick={handleTrending}
-          />
-          <Tab
-            label="최근 평점높은 영화"
-            classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            onClick={handleTopRated}
-          />
-          <Tab
-            label="최근 개봉 &amp; 예정 영화"
-            classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            onClick={handleUpcoming}
-          />
-        </Tabs>
-      </div>
-      <div className="Header__Back">
-        <Tabs
-          value={value2}
-          onChange={handleChange2}
-          classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
-        >
-          <Tab
-            label="뒤로 가기"
-            classes={{ root: classes.tabRoot}}
-            onClick={handleBackHome}
-          />
-        </Tabs>
+        <div className="Header__Back">
+          <Tabs
+            value={value2}
+            onChange={handleChange2}
+            classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
+          >
+            <Tab
+              label="뒤로 가기"
+              classes={{ root: classes.tabRoot}}
+              onClick={handleBackHome}
+            />
+          </Tabs>
+        </div>
+
+        <nav class="navbar">
+          <div class="navbar-logo">
+            <i class="far fa-lemon"></i>
+            <a href="">ISU</a>
+          </div>
+          <ul className={`${navToggleOpen ? 'navbar-menu navbar-menu-open' : 'navbar-menu'}`}>
+            <li><a onClick={handleNowPlaying}>현재 상영중인 영화</a></li>
+            <li><a onClick={handleTrending}>최근 인기있는 영화</a></li>
+            <li><a onClick={handleTopRated}>최근 평점높은 영화</a></li>
+            <li><a onClick={handleUpcoming}>최근 개봉 &amp; 예정 영화</a></li>
+          </ul>
+          <a href="#" class="navbar-more">
+            <i onClick={() => setNavToggleOpen(!navToggleOpen)} class="fas fa-bars"></i>
+          </a>
+        </nav>
       </div>
     </header>
   ));

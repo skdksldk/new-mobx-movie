@@ -1,7 +1,14 @@
+:root {
+  --text-color: #eee5e9;
+  --background-color: #d2bcdb;
+  --accent-color: #8f148f52;
+}
+
 .Header {
     position: absolute;
-    right: 30px;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
 
     &__Inner {
@@ -97,4 +104,109 @@
     font-size: 18px;
     color: #ccc;
     cursor: pointer;
+}
+
+
+* {
+  box-sizing: border-box;
+  font-family: "Black Han Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+.navbar {
+  justify-content: space-between;
+  display: none;
+  align-items: center;
+  padding: 22px 12px;
+  background-color: var(--background-color);
+
+  &-logo {
+    font-size: 24px;
+
+    i {
+      color: var(--accent-color);
+    }
+  }
+  &-menu {
+    display: none;
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      padding: 8px 12px;
+    }
+    li:hover {
+      background-color: var(--accent-color);
+      border-radius: 5px;
+    }
+  }
+  &-icon {
+    justify-content: flex-end;
+    display: none;
+    list-style: none;
+    padding-left: 0;
+    color: var(--text-color);
+
+    li {
+      font-size: larger;
+      padding: 8px 12px;
+    }
+  }
+  &-more {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+  }
+}
+
+@include atMobile {
+
+  .Header {
+    &__Inner {
+      display: none;
+    }
+    &__Back {
+      display: none;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+
+    &-menu {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+
+      a {
+        display: block;
+      }
+    }
+
+    &-icon {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+    }
+
+    &-more {
+      display: block;
+
+    }
+  }
+
+  .navbar-menu-open,
+  .navbar-icon-open {
+    display: flex;
+  }
+
 }
