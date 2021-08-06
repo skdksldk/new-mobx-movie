@@ -2,8 +2,11 @@
     &__Section {
       position: absolute;
       width: 55vw;
-      right: 20px;
-      top: 10%;
+      right: 100px;
+      top: 0%;
+      right: 0;
+      padding-top: 3rem;
+      background-color: $blue;
 
       h3 {
         font-size: 24px;
@@ -62,6 +65,7 @@
 
     &__Box {
       cursor: pointer;
+      z-index: 25;
 
       &__Poster {
         img {
@@ -159,7 +163,7 @@
       -ms-transform: translateY(-50%);
       -o-transform: translateY(-50%);
       z-index: 10;
-      width: 30vw;
+      width: 50vw;
       height: 80vh;
       overflow: auto;
       /* direction: rtl; */
@@ -170,7 +174,7 @@
           width: 8px;
       }
       ::-webkit-scrollbar-track {
-          background: #121328;
+        
       }
       ::-webkit-scrollbar-thumb {
           background-color: #000;
@@ -202,3 +206,77 @@
 .Detail__View.on .Detail__View__Bg {
     width: 70vw;
 }
+
+@include atMobile {
+  .Movie {
+      &__Section {
+        width: 95vw;
+        right: 5px;
+
+        h3 {
+          text-align: left;
+        }
+
+        &__Wrapper {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      &__Trailer {
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        width: 90%;
+        padding-bottom: 50%;
+        z-index: 100;
+      }
+  }
+  .Detail__View {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: $blue;
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+
+      &__Info {
+        position: absolute;
+        /*background: blue;*/
+        left: 0;
+        top: 10%;
+        padding-left: 3%;
+        width: 100vw;
+        height: 80vh;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        z-index: 10;
+        overflow: auto;
+
+      }
+      &__Bg {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+      }
+
+  }
+  .Detail__View.on {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+  }
+  .Detail__View.on .Detail__View__Bg {
+      width: 100vw;
+  }
+}
+

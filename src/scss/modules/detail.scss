@@ -1,4 +1,5 @@
-.Poster {
+.Select {
+  &__Poster {
     width: 20vw;
     margin: 0 auto 0 0;
 
@@ -8,7 +9,7 @@
     }
 }
 
-.Detail {
+&__Detail {
     text-align: left;
     margin-top: 30px;
     position: relative;
@@ -32,12 +33,34 @@
         font-size: 20px;
         vertical-align: text-bottom;
     }
+  }  
 }
 
 
-.Detail .Detail__Runtime {
+.Select__Detail .Select__Detail__Runtime {
     margin-left: 10px;
 }
-.Detail__Genre__list {
+.Select__Detail__Genre__list {
     margin-right: 10px;
+}
+
+@include atMobile {
+
+  .Select{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &__Poster {
+        width: 60vw;
+    }
+
+    &__Detail {
+        text-align: left;
+        margin-top: 30px;
+        position: static;
+    }
+  }
+
 }

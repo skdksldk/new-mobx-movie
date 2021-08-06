@@ -20,33 +20,33 @@ const MovieDetail = (props) => {
   const posterUrl = 'https://image.tmdb.org/t/p/original';
 
   return useObserver(() => (
-    <>
-      <div className="Poster">
+    <div className="Select">
+      <div className="Select__Poster">
         <img src={posterUrl + props.poster} alt={props.title}/>
       </div>
-      <div className="Detail">
+      <div className="Select__Detail">
         <h2>{props.title}</h2>
         <h3>{props.og_title}</h3>
         <p>
-          <span className="Detail__VoteAverage"><i className="fas fa-star"></i>{props.vote_average}</span>
-          <span className="Detail__Runtime"><i className="far fa-clock"></i> {props.runtime}분</span>
-          { store.isExisTrailer ? <span className="Detail__Trailer" onClick={handleTrailerView}><i className="fab fa-youtube"></i>예고편 보기</span> : null }
+          <span className="Select__Detail__VoteAverage"><i className="fas fa-star"></i>{props.vote_average}</span>
+          <span className="Select__Detail__Runtime"><i className="far fa-clock"></i> {props.runtime}분</span>
+          { store.isExisTrailer ? <span className="Select__Detail__Trailer" onClick={handleTrailerView}><i className="fab fa-youtube"></i>예고편 보기</span> : null }
         </p>
 
-        <div className="Detail__Genre">{renderGenre()}</div>
-        <p className="Detail__Tagline">{props.tagline}</p>
-        <p className="Detail__Summary">{props.summary}</p>
+        <div className="Select__Detail__Genre">{renderGenre()}</div>
+        <p className="Select__Detail__Tagline">{props.tagline}</p>
+        <p className="Select__Detail__Summary">{props.summary}</p>
 
       </div>
       <Credits />
       <Recommend />
-    </>
+    </div>
   ));
 }
 
 function Genre ({genre}) {
   return (
-    <span className="Detail__Genre__list">{genre}</span>
+    <span className="Select__Detail__Genre__list">{genre}</span>
   )
 }
 

@@ -24,3 +24,14 @@
     }
 
 }
+
+@include atMobile {
+    .Recommend {
+        &__Wrap {
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1rem;
+            padding-right: 0.5rem;
+        }
+    }
+  }
+  
