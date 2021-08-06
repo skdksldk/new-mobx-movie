@@ -12,47 +12,61 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-column-gap: 1em;
         grid-row-gap: 3em;
-        &__Wrap {
-            &__Profile {
-                width: 120px;
-                height: 120px;
-                margin: 0 auto;
-                overflow: hidden;
-                border-radius: 100%;
-                -webkit-border-radius: 100%;
-                -moz-border-radius: 100%;
-                -ms-border-radius: 100%;
-                -o-border-radius: 100%;
-                position: relative;
-                box-shadow: 0 8px 38px rgba(0, 0, 0, 0.5), 0 5px 12px rgba(0, 0, 0, 0.4);
-                img {
-                    position: absolute;
-                    left: 50%;
-                    top: 55%;
-                    transform: translate(-50%, -50%);
-                    -webkit-transform: translate(-50%, -50%);
-                    -moz-transform: translate(-50%, -50%);
-                    -ms-transform: translate(-50%, -50%);
-                    -o-transform: translate(-50%, -50%);
-                    width: 100%;
-                }
+       
+
+@include atMobile {
+    grid-template-columns: 1fr 1fr;
+      }
+
+      &__Wrap {
+
+        &__Profile {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 100%;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            -ms-border-radius: 100%;
+            -o-border-radius: 100%;
+            position: relative;
+            box-shadow: 0 8px 38px rgba(0, 0, 0, 0.5), 0 5px 12px rgba(0, 0, 0, 0.4);
+
+            @include atMobile {
+              width: 100%;
             }
-            &__Top {
-                margin: 20px 0 0 0;
-                span {
-                    margin-right: 5px;
-                    color: #ffffae;
-                }
-            }
-            .Bottom {
-                margin: 5px 0 0 0;
+
+            img {
+              position: absolute;
+              left: 50%;
+              top: 55%;
+              transform: translate(-50%, -50%);
+              -webkit-transform: translate(-50%, -50%);
+              -moz-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              -o-transform: translate(-50%, -50%);
+              width: 100%;
             }
         }
+
+        &__Top {
+          margin: 20px 0 0 0;
+
+          span {
+            margin-right: 5px;
+            color: #ffffae;
+          }
+        }
+        .Bottom {
+          margin: 5px 0 0 0;
+        }
+      }
     }
     &__More {
-        margin-top: 20px;
-        line-height: 50px;
-        cursor: pointer;
+      margin-top: 20px;
+      line-height: 50px;
+      cursor: pointer;
     }
 }
 
@@ -67,12 +81,3 @@
     -o-transform: translate(-50%, -50%);
     font-size: 50px;
 }
-
-@include atMobile {
-    .Credit {
-        &__List {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-  }
-  
