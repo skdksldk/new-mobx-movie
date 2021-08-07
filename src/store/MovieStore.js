@@ -11,10 +11,10 @@ const store = observable({
   movieBg: '', 
   isMovieSelected: false, 
   selectedMovie: [], 
-  searchWord: '', 
-  searchWordFix:'',
+  searchWord: '',
+  searchWordFix: '',
   recommendedMovie: [], 
-  recommendCount: 3,Fix: '',
+  recommendCount: 3, 
   movieTrailer: [], 
   movieTrailerKey: '',
   isExisTrailer: false,
@@ -44,7 +44,7 @@ const store = observable({
       this.sortMethodName = '현재 상영중인 영화';
     }
     else if ( sortPram == '1' ) {
-    
+      
       SORT = TRENDING;
       this.sortMethodName = '최근 인기있는 영화'
     }
@@ -76,11 +76,11 @@ const store = observable({
   async getMovies(sortPram){
     
     const movies = await this.getApi(sortPram);
-    if ( movies.results.length <= 0) {
+
+    if ( movies == undefined ) {
       this.setSearchFailed();
     } else {
       this.setMovie(movies.results);
-      
       this.setSearchSuccess();
       this.checkMovieLoad(this.movieList);
       this.changeMovieBg(this.movieList[0].backdrop_path);
@@ -91,13 +91,18 @@ const store = observable({
     this.movieList = movieData;
   },
   checkMovieLoad(movieObj){
-  
+    
     if ( !_.isEmpty(movieObj) ) return this.isMovieLoded = true;
     else return false;
   },
   setSearchSuccess(){
     
     this.isSuccessSearch = true;
+  },
+  setSearchFailed(){
+    
+    this.movieList = [];
+    this.isSuccessSearch = false;
   },
   setSearchKeyword(keyword){
     
@@ -116,11 +121,11 @@ const store = observable({
     if ( !this.isMovieSelected ) this.isMovieSelected = !this.isMovieSelected;
   },
   setBgRestore(){
-  
+    
     this.changeMovieBg(this.selectedMovie.backdrop_path);
   },
   backHome(){
-  
+    
     this.isMovieSelected = false;
   },
   setClearSelectedMovie(){
@@ -211,7 +216,7 @@ const store = observable({
       .catch (err => console.log(err))
   },
   setTrailer(trailer){
-  
+    
     this.movieTrailer = trailer;
   },
   setTrueTrailer(){
@@ -250,10 +255,10 @@ const store = observable({
       .catch (err => console.log(err))
   },
   setRecommendMovie(recommendations){
-    
+  
     this.recommendedMovie = recommendations;
   }
-
 })
 
 export default store;
+
