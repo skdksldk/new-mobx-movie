@@ -139,19 +139,26 @@ const Header = (props) => {
           </Tabs>
         </div>
 
-        <nav class="navbar">
-          <div class="navbar-logo">
-            <i class="far fa-lemon"></i>
+        <nav className="Nav">
+          <div className="Nav__logo">
             <a href="">ISU</a>
           </div>
-          <ul className={`${navToggleOpen ? 'navbar-menu navbar-menu-open' : 'navbar-menu'}`}>
+          <ul className={`${navToggleOpen ? 'Nav__Menu Nav__Menu-open' : 'Nav-Menu'}`}>
             <li><a onClick={handleNowPlaying}>현재 상영중인 영화</a></li>
             <li><a onClick={handleTrending}>최근 인기있는 영화</a></li>
             <li><a onClick={handleTopRated}>최근 평점높은 영화</a></li>
             <li><a onClick={handleUpcoming}>최근 개봉 &amp; 예정 영화</a></li>
+            <li><div className="Nav__Menu__Search">
+                  <input type="text"
+                         placeholder=""
+                         onChange={handleKeywordChange}
+                         onKeyPress={handleKeypress} />
+                  <i className="fas fa-search"
+                     onClick={handleSearch}></i>
+                </div></li>
           </ul>
-          <a href="#" class="navbar-more">
-            <i onClick={() => setNavToggleOpen(!navToggleOpen)} class="fas fa-bars"></i>
+          <a href="#" className="Nav__More">
+            <i onClick={() => setNavToggleOpen(!navToggleOpen)} className="fas fa-bars"></i>
           </a>
         </nav>
       </div>
