@@ -184,6 +184,14 @@
     -moz-transform: translateX(0);
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
+
+    transition: all 0s 0s ease-in-out;
+    -webkit-transition: all 0s 0s ease-in-out;
+    -moz-transition: all 0s 0s ease-in-out;
+    -ms-transition: all 0s 0s ease-in-out;
+    -o-transition: all 0s 0s ease-in-out;
+
+    opacity: 0;
   }
 
   &__Info {
@@ -241,6 +249,7 @@
 
     @include atMobile {
       width: 100vw;
+      opacity: 0.5;
     }
   }
 
@@ -251,6 +260,8 @@
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
   -o-transform: translateX(0);
+
+  opacity: 1;
 }
 
 .Detail__View.on .Detail__View__Bg {
