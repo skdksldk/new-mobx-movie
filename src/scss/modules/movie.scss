@@ -26,6 +26,9 @@
             height: 70vh;
             padding-right: 20px;
             overflow: auto;
+            @include atTablets {
+              grid-template-columns: 1fr 1fr 1fr;
+            }
             @include atMobile {
                 grid-template-columns: 1fr 1fr;
                 grid-column-gap: 1em;

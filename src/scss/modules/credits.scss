@@ -13,6 +13,11 @@
         grid-column-gap: 1em;
         grid-row-gap: 3em;
        
+       
+        @include atTablets {
+          width: 100%;
+        }       
+       
 
 @include atMobile {
     grid-template-columns: 1fr 1fr;
@@ -32,6 +37,10 @@
             -o-border-radius: 100%;
             position: relative;
             box-shadow: 0 8px 38px rgba(0, 0, 0, 0.5), 0 5px 12px rgba(0, 0, 0, 0.4);
+
+            @include atTablets {
+              width: 100%;
+            }
 
             @include atMobile {
               width: 100%;

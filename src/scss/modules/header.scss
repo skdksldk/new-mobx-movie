@@ -4,81 +4,77 @@
     left: 0;
     width: 100%;
     z-index: 100;
-
     &__Inner {
-      transition: all 0.5s ease-in-out;
-      -webkit-transition: all 0.5s ease-in-out;
-      -moz-transition: all 0.5s ease-in-out;
-      -ms-transition: all 0.5s ease-in-out;
-      -o-transition: all 0.5s ease-in-out;
-      @include atMobile {
-        display: none;
-      }
+        transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        @include atMobile {
+            display: none;
+        }
     }
-  
     &__Back {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      transition: all 0.5s ease-in-out;
-      -webkit-transition: all 0.5s ease-in-out;
-      -moz-transition: all 0.5s ease-in-out;
-      -ms-transition: all 0.5s ease-in-out;
-      -o-transition: all 0.5s ease-in-out;
-      @include atMobile {
-        display: none;
-      }
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        @include atMobile {
+            display: none;
+        }
     }
-
     &__Search {
-      margin-right: 50px;
-      display: inline-block;
-      vertical-align: middle;
-
-      input {
-        height: 38px;
-        line-height: 38px;
-        border: none;
-        background: transparent;
-        color: #ccc;
-        font-size: 16px;
-        padding: 0 10px;
-        text-align: center;
-        margin: 5px 0;
-        font-family: 'Noto Sans KR', sans-serif;
-        width: 150px;
-        outline: none;
-        transition: background 0.5s ease-in-out;
-        -webkit-transition: background 0.5s ease-in-out;
-        -moz-transition: background 0.5s ease-in-out;
-        -ms-transition: background 0.5s ease-in-out;
-        -o-transition: background 0.5s ease-in-out;
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-      }
-      input:focus {
-        background: rgba(0, 0, 0, 0.3);
-      }
+        margin-right: 50px;
+        display: inline-block;
+        vertical-align: middle;
+        input {
+            height: 38px;
+            line-height: 38px;
+            border: none;
+            background: transparent;
+            color: #ccc;
+            font-size: 16px;
+            padding: 0 10px;
+            text-align: center;
+            margin: 5px 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            width: 150px;
+            outline: none;
+            transition: background 0.5s ease-in-out;
+            -webkit-transition: background 0.5s ease-in-out;
+            -moz-transition: background 0.5s ease-in-out;
+            -ms-transition: background 0.5s ease-in-out;
+            -o-transition: background 0.5s ease-in-out;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+        input:focus {
+            background: rgba(0, 0, 0, 0.3);
+        }
     }
-    &__Inner > div {
-      display: inline-block;
-      vertical-align: middle;
+    &__Inner>div {
+        display: inline-block;
+        vertical-align: middle;
     }
 }
 
 .Header.on .Header__Inner {
-  visibility: hidden;
-  opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .Header.on .Header__Back {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 .gnb ul {
@@ -86,11 +82,13 @@
     margin: 0;
     padding: 0;
 }
+
 .gnb ul:after {
     display: block;
     clear: both;
     content: '';
 }
+
 .gnb ul li {
     float: left;
     margin: 0 15px;
@@ -98,6 +96,7 @@
     line-height: 60px;
     cursor: pointer;
 }
+
 .gnb ul li.on {
     opacity: 1;
 }
@@ -108,98 +107,84 @@
     cursor: pointer;
 }
 
-
-
 .Nav {
-  justify-content: space-between;
-  display: none;
-  align-items: center;
-  padding: 22px 12px;
-  background-color: $dblue;
-
-  @include atMobile {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 24px;
-  }
-
-  &-Logo {
-    font-size: 24px;
-
-    
-  }
-  &-Menu {
+    justify-content: space-between;
     display: none;
-    padding-left: 0;
-    list-style: none;
-
+    align-items: center;
+    padding: 22px 12px;
+    background-color: $dblue;
     @include atMobile {
-      display: none;
-      flex-direction: column;
-      text-align: center;
-      width: 100%;
-
-      a {
-        display: block;
-      }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
     }
-
-    li {
-      padding: 8px 12px;
+    &-Logo {
+        font-size: 24px;
     }
-    li:hover {
-      background-color: var(--accent-color);
-      border-radius: 5px;
+    &-Menu {
+        display: none;
+        padding-left: 0;
+        list-style: none;
+        @include atMobile {
+            display: none;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            a {
+                display: block;
+            }
+        }
+        li {
+            padding: 8px 12px;
+        }
+        li:hover {
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+        &__Search {
+            input {
+                height: 38px;
+                line-height: 38px;
+                border: solid 3px;
+                background: transparent;
+                color: #ccc;
+                font-size: 16px;
+                padding: 0 10px;
+                text-align: center;
+                margin: 5px 0;
+                font-family: 'Noto Sans KR', sans-serif;
+                width: 150px;
+                outline: none;
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+            }
+            input:focus {
+                background: rgba(0, 0, 0, 0.3);
+            }
+            i {
+                line-height: 38px;
+                padding: 0 10px;
+                margin: 5px 0;
+            }
+        }
     }
-
-    &__Search {
-      input {
-        height: 38px;
-        line-height: 38px;
-        border: solid 3px;
-        background: transparent;
-        color: #ccc;
-        font-size: 16px;
-        padding: 0 10px;
-        text-align: center;
-        margin: 5px 0;
-        font-family: 'Noto Sans KR', sans-serif;
-        width: 150px;
-        outline: none;
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-      }
-      input:focus {
-        background: rgba(0, 0, 0, 0.3);
-      }
-      i {
-        line-height: 38px;
-        padding: 0 10px;
-        margin: 5px 0;
-      }
+    &__More {
+        display: none;
+        position: absolute;
+        right: 32px;
+        font-size: 24px;
+        @include atMobile {
+            display: block;
+        }
     }
-  }
-
-  &__More {
-    display: none;
-    position: absolute;
-    right: 32px;
-    font-size: 24px;
-
-    @include atMobile {
-      display: block;
-    }
-  }
 }
 
 @include atMobile {
-  .Nav__Menu-open {
-    display: flex;
-  }
+    .Nav__Menu-open {
+        display: flex;
+    }
 }
-
-  
