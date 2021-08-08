@@ -115,7 +115,7 @@
   display: none;
   align-items: center;
   padding: 22px 12px;
-  background-color: $blue;
+  background-color: $dblue;
 
   @include atMobile {
     display: flex;
@@ -127,9 +127,7 @@
   &-Logo {
     font-size: 24px;
 
-    i {
-      color: var(--accent-color);
-    }
+    
   }
   &-Menu {
     display: none;
@@ -156,9 +154,6 @@
     }
 
     &__Search {
-      display: flex;
-      vertical-align: middle;
-
       input {
         height: 38px;
         line-height: 38px;
