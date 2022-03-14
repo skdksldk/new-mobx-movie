@@ -29,8 +29,6 @@ https://jovial-stonebraker-49f99b.netlify.app/
     - SCSS(BEM 활용)
 
 <br />
-<br />
-<br />
 
 ## 📝담당업무
 - MobX를 활용한 상태관리
